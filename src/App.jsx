@@ -7,17 +7,11 @@ import Selector from './components/Selector';
 const App = () => {
    const [score, setScore] = useState(0);
    const [gameMode, setGameMode] = useState('default');
-   const [scoreClicks, setScoreClicks] = useState(0);
 
    return (
       <>
          <Layout.container padding="1rem">
-            <Header
-               scoreClicks={scoreClicks}
-               setScoreClicks={setScoreClicks}
-               setGameMode={setGameMode}
-               score={score}
-            />
+            <Header gameMode={gameMode} score={score} />
             <Selector setGameMode={setGameMode} />
             <Game gameMode={gameMode} setScore={setScore} />
          </Layout.container>

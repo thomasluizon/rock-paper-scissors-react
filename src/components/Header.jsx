@@ -38,24 +38,38 @@ const Score = styled.div`
    }
 `;
 
-export default props => {
-   const changeMode = () => {
-      props.setScoreClicks(prevState => prevState + 1);
-   };
+const GameName = props => {
+   const defaultGameName = (
+      <>
+         <p>rock</p>
+         <p>paper</p>
+         <p>scissors</p>
+      </>
+   );
 
+   const hardGameName = (
+      <>
+         <p>rock</p>
+         <p>paper</p>
+         <p>scissors</p>
+         <p>lizard</p>
+         <p>spock</p>
+      </>
+   );
+
+   return props.gameMode === 'default' ? defaultGameName : hardGameName;
+};
+
+export default props => {
    return (
       <Header>
          <Layout.wrapper justify="space-between" align="center">
             <GameMode>
-               <p>rock</p>
-               <p>paper</p>
-               <p>scissors</p>
+               <GameName gameMode={props.gameMode} />
             </GameMode>
             <Score>
                <p className="score">score</p>
-               <p onClick={changeMode} className="score-value">
-                  {props.score}
-               </p>
+               <p className="score-value">{props.score}</p>
             </Score>
          </Layout.wrapper>
       </Header>

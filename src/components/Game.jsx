@@ -15,7 +15,7 @@ import Lizard from '../assets/images/icon-lizard.svg';
 const Game = styled.main`
    display: grid;
    place-items: center;
-   height: 70%;
+   height: 60%;
 `;
 
 const Connector = styled.div`
