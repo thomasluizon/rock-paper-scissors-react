@@ -14,6 +14,13 @@ const GameButton = styled.div`
    width: ${buttonSize};
    height: ${buttonSize};
    position: relative;
+   transition: 0.2s;
+   cursor: pointer;
+   box-shadow: ${props => `0 7px 0 0 ${props.box}`};
+
+   &:hover {
+      box-shadow: 1px 1px 10px 5px white;
+   }
 `;
 
 const circleSize = '80%';
@@ -27,11 +34,12 @@ const Circle = styled.div`
    border-radius: 50%;
    width: ${circleSize};
    height: ${circleSize};
+   box-shadow: inset 0 8px 0 0 #ccc;
 `;
 
 export default props => {
    return (
-      <GameButton id={props.id} color={props.color}>
+      <GameButton box={props.box} id={props.id} color={props.color}>
          <Circle img={props.img} />
       </GameButton>
    );

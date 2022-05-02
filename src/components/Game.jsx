@@ -89,16 +89,23 @@ export default props => {
             <Layout.wrapper justify="center" position="relative">
                <GameButton
                   id="paper"
+                  box="#0d2fd9"
                   img={Paper}
                   color={colors.primary.paper}
                />
                <GameButton
                   id="scissors"
+                  box="#d39312"
                   img={Scissors}
                   color={colors.primary.scissors}
                />
 
-               <GameButton id="rock" img={Rock} color={colors.primary.rock} />
+               <GameButton
+                  id="rock"
+                  box="#c32240"
+                  img={Rock}
+                  color={colors.primary.rock}
+               />
             </Layout.wrapper>
          </Connector>
       </Game>
@@ -110,19 +117,32 @@ export default props => {
             <Layout.wrapper justify="center" position="relative">
                <GameButton
                   id="scissors"
+                  box="#d39312"
                   img={Scissors}
                   color={colors.primary.scissors}
                />
-               <GameButton id="spock" img={Spock} color={colors.primary.cyan} />
+               <GameButton
+                  id="spock"
+                  box="#30a1b5"
+                  img={Spock}
+                  color={colors.primary.cyan}
+               />
                <GameButton
                   id="paper"
+                  box="#0d2fd9"
                   img={Paper}
                   color={colors.primary.paper}
                />
-               <GameButton id="rock" img={Rock} color={colors.primary.rock} />
+               <GameButton
+                  id="rock"
+                  box="#c32240"
+                  img={Rock}
+                  color={colors.primary.rock}
+               />
                <GameButton
                   id="lizard"
                   img={Lizard}
+                  box="#5a20c5"
                   color={colors.primary.lizard}
                />
             </Layout.wrapper>
