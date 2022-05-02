@@ -1,6 +1,6 @@
-import Layout from '../function/Layout';
 import styled from 'styled-components';
 import colors from '../function/Colors';
+import Layout from '../function/Layout';
 
 const GameMode = styled.div`
    p {
@@ -37,22 +37,26 @@ const Score = styled.div`
    }
 `;
 
-export default () => {
+export default props => {
+   const changeMode = () => {
+      props.setScoreClicks(prevState => prevState + 1);
+   };
+
    return (
-      <Layout.container padding="1rem">
-         <Header>
-            <Layout.wrapper justify="space-between" align="center">
-               <GameMode>
-                  <p>rock</p>
-                  <p>paper</p>
-                  <p>scissors</p>
-               </GameMode>
-               <Score>
-                  <p className="score">score</p>
-                  <p className="score-value">12</p>
-               </Score>
-            </Layout.wrapper>
-         </Header>
-      </Layout.container>
+      <Header>
+         <Layout.wrapper justify="space-between" align="center">
+            <GameMode>
+               <p>rock</p>
+               <p>paper</p>
+               <p>scissors</p>
+            </GameMode>
+            <Score>
+               <p className="score">score</p>
+               <p onClick={changeMode} className="score-value">
+                  {props.score}
+               </p>
+            </Score>
+         </Layout.wrapper>
+      </Header>
    );
 };
