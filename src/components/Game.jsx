@@ -13,9 +13,7 @@ import Spock from '../assets/images/icon-spock.svg';
 import Lizard from '../assets/images/icon-lizard.svg';
 
 const Game = styled.main`
-   display: grid;
-   place-items: center;
-   height: 60%;
+   margin-top: 2rem;
 `;
 
 const Connector = styled.div`

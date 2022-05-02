@@ -15,6 +15,7 @@ const Header = styled.header`
    border: 1px solid ${colors.neutral.headerOutline};
    border-radius: 10px;
    user-select: none;
+   width: 100%;
 `;
 
 const Score = styled.div`
