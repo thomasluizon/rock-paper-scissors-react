@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import colors from './Colors';
 
 const Global = createGlobalStyle`
    *, *::before, *::after {
@@ -13,6 +14,12 @@ const Global = createGlobalStyle`
 
    body {
       font-family: 'Barlow Semi Condensed', sans-serif;
+      height: 100vh;
+      background: ${colors.background.back};
+
+      #root {
+         height: 100%;
+      }
    }
 `;
 

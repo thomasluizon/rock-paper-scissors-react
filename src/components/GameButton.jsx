@@ -6,7 +6,7 @@ const transform = `
    left: 50%;
    transform: translate(-50%, -50%);
 `;
-const buttonSize = '150px';
+const buttonSize = '130px';
 
 const GameButton = styled.div`
    background: ${props => props.color};
@@ -31,7 +31,7 @@ const Circle = styled.div`
 
 export default props => {
    return (
-      <GameButton color={props.color}>
+      <GameButton id={props.id} color={props.color}>
          <Circle img={props.img} />
       </GameButton>
    );

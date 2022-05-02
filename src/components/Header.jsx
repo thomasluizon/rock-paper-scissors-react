@@ -14,6 +14,7 @@ const Header = styled.header`
    padding: 1rem 1.5rem;
    border: 1px solid ${colors.neutral.headerOutline};
    border-radius: 10px;
+   user-select: none;
 `;
 
 const Score = styled.div`

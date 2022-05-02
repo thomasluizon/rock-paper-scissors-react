@@ -6,12 +6,6 @@ import Game from './components/Game';
 import Layout from './function/Layout';
 import { useEffect } from 'react';
 
-const Background = styled.div`
-   background: ${colors.background.back};
-   width: 100%;
-   height: 100vh;
-`;
-
 const App = () => {
    const [score, setScore] = useState(0);
    const [gameMode, setGameMode] = useState('default');
@@ -30,17 +24,15 @@ const App = () => {
 
    return (
       <>
-         <Background>
-            <Layout.container padding="1rem">
-               <Header
-                  scoreClicks={scoreClicks}
-                  setScoreClicks={setScoreClicks}
-                  setGameMode={setGameMode}
-                  score={score}
-               />
-               <Game gameMode={gameMode} setScore={setScore} />
-            </Layout.container>
-         </Background>
+         <Layout.container padding="1rem">
+            <Header
+               scoreClicks={scoreClicks}
+               setScoreClicks={setScoreClicks}
+               setGameMode={setGameMode}
+               score={score}
+            />
+            <Game gameMode={gameMode} setScore={setScore} />
+         </Layout.container>
       </>
    );
 };

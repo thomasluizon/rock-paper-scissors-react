@@ -6,6 +6,7 @@ const Layout = {
       height: 100%;
       max-width: ${props => props.maxWidth || '960px'};
       padding: ${props => props.padding || '0 1rem'};
+      position: ${props => props.position || 'static'};
    `,
 
    wrapper: styled.div`
@@ -14,6 +15,8 @@ const Layout = {
       justify-content: ${props => props.justify || 'normal'};
       flex-direction: ${props => props.direction || 'row'};
       gap: ${props => props.gap || 'unset'};
+      position: ${props => props.position || 'static'};
+      flex-wrap: ${props => props.fwrap || 'nowrap'};
    `,
 };
 
