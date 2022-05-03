@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import defaultRules from '../assets/images/image-rules.svg';
 import hardRules from '../assets/images/image-rules-bonus.svg';
 import colors from '../function/Colors';
+import { useEffect, useState } from 'react';
 
 const RulesOverlay = styled.div`
    position: fixed;
@@ -15,11 +16,13 @@ const RulesOverlay = styled.div`
    place-items: center;
 
    .overlay {
-      background-color: #0000002e;
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      z-index: -1;
+      @media screen and (min-width: 768px) {
+         background-color: #0000002e;
+         width: 100%;
+         height: 100%;
+         position: fixed;
+         z-index: -1;
+      }
    }
 
    .modal {
@@ -29,8 +32,25 @@ const RulesOverlay = styled.div`
       display: flex;
       flex-direction: column;
 
-      @media screen and (max-width: 470px) {
-         transform: scale(0.6);
+      @media screen and (max-width: 768px) {
+         justify-content: space-between;
+         position: fixed;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         border-radius: 0;
+
+         img {
+            max-width: 400px;
+            margin: 0 auto;
+         }
+      }
+
+      @media screen and (max-width: 410px) {
+         img {
+            max-width: 250px;
+         }
       }
 
       .wrapper {
@@ -42,13 +62,33 @@ const RulesOverlay = styled.div`
             text-transform: uppercase;
             font-weight: 700;
             font-size: 1.5rem;
+
+            @media screen and (max-width: 768px) {
+               text-align: center;
+               width: 100%;
+            }
          }
 
-         button {
+         .desktop {
             background: none;
-            color: ${colors.neutral.headerOutline};
-            font-size: 1.5rem;
+            color: grey;
+            font-size: 2rem;
             cursor: pointer;
+
+            @media screen and (max-width: 768px) {
+               display: none;
+            }
+         }
+      }
+      .mobile {
+         display: none;
+         background: none;
+         color: grey;
+         font-size: 2rem;
+         cursor: pointer;
+
+         @media screen and (max-width: 768px) {
+            display: block;
          }
       }
    }
@@ -64,12 +104,20 @@ export default props => {
          >
             <div className="wrapper">
                <h2>Rules</h2>
-               <button onClick={() => props.setRules(false)}>x</button>
+               <button
+                  onClick={() => props.setRules(false)}
+                  className="desktop"
+               >
+                  x
+               </button>
             </div>
             <img
                src={props.gameMode === 'default' ? defaultRules : hardRules}
                alt=""
             />
+            <button onClick={() => props.setRules(false)} className="mobile">
+               x
+            </button>
          </div>
       </RulesOverlay>
    );

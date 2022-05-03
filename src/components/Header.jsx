@@ -3,9 +3,17 @@ import colors from '../function/Colors';
 import Layout from '../function/Layout';
 
 const GameMode = styled.div`
+   .normal {
+      font-size: 2em;
+
+      @media screen and (max-width: 360px) {
+         font-size: 1.5em;
+      }
+   }
+
    p {
       color: white;
-      font-size: 2em;
+      font-size: 1.3em;
       text-transform: uppercase;
 
       @media screen and (max-width: 470px) {
@@ -20,6 +28,10 @@ const Header = styled.header`
    border-radius: 10px;
    user-select: none;
    width: 100%;
+
+   @media screen and (max-width: 768px) {
+      transform: scale(0.8);
+   }
 `;
 
 const Score = styled.div`
@@ -46,9 +58,9 @@ const Score = styled.div`
 const GameName = props => {
    const defaultGameName = (
       <>
-         <p>rock</p>
-         <p>paper</p>
-         <p>scissors</p>
+         <p className="normal">rock</p>
+         <p className="normal">paper</p>
+         <p className="normal">scissors</p>
       </>
    );
 

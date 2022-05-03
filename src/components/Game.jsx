@@ -21,13 +21,18 @@ const Game = styled.main`
    .wrapper {
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 2rem;
-
+      width: 50%;
       h4 {
          color: white;
          font-size: 2rem;
          text-transform: uppercase;
          text-align: center;
+
+         @media screen and (max-width: 533px) {
+            font-size: 1.2rem;
+         }
       }
    }
 `;
@@ -44,6 +49,11 @@ const Connector = styled.div`
       height: 300px;
    }
 
+   @media screen and (max-width: 360px) {
+      width: 250px;
+      height: 270px;
+   }
+
    margin: 0 auto;
 
    #paper {
@@ -55,6 +65,11 @@ const Connector = styled.div`
          left: -15px;
          top: -15px;
       }
+
+      @media screen and (max-width: 360px) {
+         left: -30px;
+         top: -30px;
+      }
    }
 
    #rock {
@@ -63,6 +78,10 @@ const Connector = styled.div`
 
       @media screen and (max-width: 470px) {
          top: 230px;
+      }
+
+      @media screen and (max-width: 360px) {
+         top: 210px;
       }
    }
 
@@ -74,6 +93,11 @@ const Connector = styled.div`
       @media screen and (max-width: 470px) {
          right: -15px;
          top: -15px;
+      }
+
+      @media screen and (max-width: 360px) {
+         right: -30px;
+         top: -30px;
       }
    }
 `;
@@ -92,12 +116,21 @@ const ConnectorSecret = styled.div`
       transform: scale(0.8);
    }
 
+   @media screen and (max-width: 360px) {
+      width: 300px;
+      height: 300px;
+   }
+
    #scissors {
       position: absolute;
       top: 25px;
 
       @media screen and (max-width: 470px) {
          top: -20px;
+      }
+
+      @media screen and (max-width: 360px) {
+         top: -30px;
       }
    }
 
@@ -110,6 +143,11 @@ const ConnectorSecret = styled.div`
          top: 80px;
          left: -15px;
       }
+
+      @media screen and (max-width: 360px) {
+         top: 70px;
+         left: -30px;
+      }
    }
 
    #paper {
@@ -120,6 +158,11 @@ const ConnectorSecret = styled.div`
       @media screen and (max-width: 470px) {
          top: 80px;
          right: -15px;
+      }
+
+      @media screen and (max-width: 360px) {
+         top: 70px;
+         right: -30px;
       }
    }
 
@@ -132,6 +175,10 @@ const ConnectorSecret = styled.div`
          top: 260px;
          right: 25px;
       }
+
+      @media screen and (max-width: 360px) {
+         top: 240px;
+      }
    }
 
    #lizard {
@@ -142,6 +189,10 @@ const ConnectorSecret = styled.div`
       @media screen and (max-width: 470px) {
          top: 260px;
          left: 25px;
+      }
+
+      @media screen and (max-width: 360px) {
+         top: 240px;
       }
    }
 `;
@@ -181,50 +232,70 @@ export default props => {
          if (player === 'rock') {
             if (computer === 'scissors' || computer === 'lizard') {
                setWinCondition('win');
-               props.setScore(curr => curr + 1);
+               setTimeout(() => {
+                  props.setScore(curr => curr + 1);
+               }, 1500);
             } else {
                setWinCondition('lose');
-               props.setScore(curr => curr - 1);
+               setTimeout(() => {
+                  props.setScore(curr => curr - 1);
+               }, 1500);
             }
          }
 
          if (player === 'paper') {
             if (computer === 'rock' || computer === 'spock') {
                setWinCondition('win');
-               props.setScore(curr => curr + 1);
+               setTimeout(() => {
+                  props.setScore(curr => curr + 1);
+               }, 1500);
             } else {
                setWinCondition('lose');
-               props.setScore(curr => curr - 1);
+               setTimeout(() => {
+                  props.setScore(curr => curr - 1);
+               }, 1500);
             }
          }
 
          if (player === 'scissors') {
             if (computer === 'paper' || computer === 'lizard') {
                setWinCondition('win');
-               props.setScore(curr => curr + 1);
+               setTimeout(() => {
+                  props.setScore(curr => curr + 1);
+               }, 1500);
             } else {
                setWinCondition('lose');
-               props.setScore(curr => curr - 1);
+               setTimeout(() => {
+                  props.setScore(curr => curr - 1);
+               }, 1500);
             }
          }
 
          if (player === 'spock') {
             if (computer === 'scissors' || computer === 'rock') {
                setWinCondition('win');
-               props.setScore(curr => curr + 1);
+               setTimeout(() => {
+                  props.setScore(curr => curr + 1);
+               }, 1500);
             } else {
                setWinCondition('lose');
-               props.setScore(curr => curr - 1);
+               setTimeout(() => {
+                  props.setScore(curr => curr - 1);
+               }, 1500);
             }
          }
 
          if (player === 'lizard') {
             if (computer === 'spock' || computer === 'paper') {
                setWinCondition('win');
-               props.setScore(curr => curr + 1);
+               setTimeout(() => {
+                  props.setScore(curr => curr + 1);
+               }, 1500);
             } else {
                setWinCondition('lose');
-               props.setScore(curr => curr - 1);
+               setTimeout(() => {
+                  props.setScore(curr => curr - 1);
+               }, 1500);
             }
          }
       }

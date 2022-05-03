@@ -15,11 +15,12 @@ const Global = createGlobalStyle`
 
    body {
       font-family: 'Barlow Semi Condensed', sans-serif;
-
+      overflow-x: hidden;
       background: ${colors.background.back};
-
+      height: 100vh;
       #root {
          height: 100%;
+         overflow-x: hidden;
       }
    }
 `;

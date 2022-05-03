@@ -6,17 +6,27 @@ const transform = `
    left: 50%;
    transform: translate(-50%, -50%);
 `;
-const buttonSize = '140px';
+const buttonSize = 140;
 
 const GameButton = styled.div`
    background: ${props => props.colorRadial};
    border-radius: 50%;
-   width: ${props => props.size || buttonSize};
-   height: ${props => props.size || buttonSize};
+   width: ${props => (props.size ? `${props.size}px` : `${buttonSize}px`)};
+   height: ${props => (props.size ? `${props.size}px` : `${buttonSize}px`)};
    z-index: ${props => props.index || 0};
+
+   @media screen and (max-width: 768px) {
+      width: ${props =>
+         props.size ? `${props.size * 0.67}px` : `${buttonSize}px`};
+      height: ${props =>
+         props.size ? `${props.size * 0.67}px` : `${buttonSize}px`};
+   }
+
    @media screen and (max-width: 470px) {
-      width: calc(${buttonSize} * 0.67);
-      height: calc(${buttonSize} * 0.67);
+      width: ${props =>
+         props.size ? `${props.size * 0.5}px` : `${buttonSize * 0.67}px`};
+      height: ${props =>
+         props.size ? `${props.size * 0.5}px` : `${buttonSize * 0.67}px`};
    }
 
    position: relative;

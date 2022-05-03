@@ -5,7 +5,16 @@ import colors from '../function/Colors';
 
 const Selector = styled.div`
    margin-top: 2rem;
-   margin-bottom: 2rem;
+   margin-bottom: 11rem;
+
+   @media screen and (max-height: 900px) {
+      margin-bottom: 3rem;
+   }
+
+   @media screen and (max-width: 425px) {
+      transform: scale(0.8);
+   }
+
    p {
       color: white;
       text-transform: uppercase;
