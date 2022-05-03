@@ -9,7 +9,7 @@ const transform = `
 const buttonSize = '130px';
 
 const GameButton = styled.div`
-   background: ${props => props.color};
+   background: ${props => props.colorRadial};
    border-radius: 50%;
    width: ${buttonSize};
    height: ${buttonSize};
@@ -39,7 +39,7 @@ const Circle = styled.div`
 
 export default props => {
    return (
-      <GameButton box={props.box} id={props.id} color={props.color}>
+      <GameButton box={props.box} id={props.id} colorRadial={props.color}>
          <Circle img={props.img} />
       </GameButton>
    );

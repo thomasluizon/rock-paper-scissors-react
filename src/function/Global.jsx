@@ -10,6 +10,7 @@ const Global = createGlobalStyle`
       font-weight: normal;
       outline: none;
       border: none;
+      font-family: 'Barlow Semi Condensed', sans-serif;
    }
 
    body {
