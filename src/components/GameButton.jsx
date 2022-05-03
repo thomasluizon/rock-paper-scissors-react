@@ -13,7 +13,7 @@ const GameButton = styled.div`
    border-radius: 50%;
    width: ${props => props.size || buttonSize};
    height: ${props => props.size || buttonSize};
-
+   z-index: ${props => props.index || 0};
    @media screen and (max-width: 470px) {
       width: calc(${buttonSize} * 0.67);
       height: calc(${buttonSize} * 0.67);
@@ -22,7 +22,10 @@ const GameButton = styled.div`
    position: relative;
    transition: 0.2s;
    cursor: pointer;
-   box-shadow: ${props => `0 7px 0 0 ${props.box}`};
+   box-shadow: ${props =>
+      props.win
+         ? '0 0 0 75px hsla(214,47%,23%,80%),0 0 0 150px hsla(214,47%,23%,60%),0 0 0 225px hsla(214,47%,23%,40%)'
+         : `0 7px 0 0 ${props.box}`};
 
    &:hover {
       box-shadow: 1px 1px 10px 5px white;
@@ -56,6 +59,8 @@ export default props => {
          id={props.id}
          colorRadial={props.color}
          size={props.size}
+         win={props.win}
+         index={props.index}
       >
          <Circle img={props.img} />
       </GameButton>

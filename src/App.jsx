@@ -1,5 +1,5 @@
 import Layout from './function/Layout';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Game from './components/Game';
 import Selector from './components/Selector';

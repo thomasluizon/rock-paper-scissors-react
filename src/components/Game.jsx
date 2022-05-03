@@ -17,6 +17,19 @@ import Lizard from '../assets/images/icon-lizard.svg';
 const Game = styled.main`
    width: 100%;
    margin: 4rem auto;
+
+   .wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      h4 {
+         color: white;
+         font-size: 2rem;
+         text-transform: uppercase;
+         text-align: center;
+      }
+   }
 `;
 
 const Connector = styled.div`
@@ -134,55 +147,9 @@ const ConnectorSecret = styled.div`
 `;
 
 export default props => {
-   const [computer, setComputer] = useState(null);
-   const [player, setPlayer] = useState(null);
-   const [winCondition, setWinCondition] = useState(null);
-
-   const winner = () => {
-      if (player === computer) {
-         setWinCondition('draw');
-      } else {
-         if (player === 'rock') {
-            if (computer === 'scissors' || computer === 'lizard') {
-               setWinCondition('win');
-            } else {
-               setWinCondition('lose');
-            }
-         }
-
-         if (player === 'paper') {
-            if (computer === 'rock' || computer === 'spock') {
-               setWinCondition('win');
-            } else {
-               setWinCondition('lose');
-            }
-         }
-
-         if (player === 'scissors') {
-            if (computer === 'paper' || computer === 'lizard') {
-               setWinCondition('win');
-            } else {
-               setWinCondition('lose');
-            }
-         }
-
-         if (player === 'spock') {
-            if (computer === 'scissors' || computer === 'rock') {
-               setWinCondition('win');
-            } else {
-               setWinCondition('lose');
-            }
-         }
-
-         if (player === 'lizard') {
-            if (computer === 'spock' || computer === 'paper') {
-               setWinCondition('win');
-            } else {
-               setWinCondition('lose');
-            }
-         }
-      }
-   };
+   const [player, setPlayer] = useState('');
+   const [computer, setComputer] = useState('');
+   const [winCondition, setWinCondition] = useState('');
 
    const playGame = play => {
       props.setIsPlaying(true);
@@ -203,11 +170,65 @@ export default props => {
       if (computerPlay === 3) computerPlay = 'spock';
       if (computerPlay === 4) computerPlay = 'lizard';
 
-      setComputer(computerPlay);
       setPlayer(play);
-
-      winner();
+      setComputer(computerPlay);
    };
+
+   useEffect(() => {
+      if (player === computer) {
+         setWinCondition('draw');
+      } else {
+         if (player === 'rock') {
+            if (computer === 'scissors' || computer === 'lizard') {
+               setWinCondition('win');
+               props.setScore(curr => curr + 1);
+            } else {
+               setWinCondition('lose');
+               props.setScore(curr => curr - 1);
+            }
+         }
+
+         if (player === 'paper') {
+            if (computer === 'rock' || computer === 'spock') {
+               setWinCondition('win');
+               props.setScore(curr => curr + 1);
+            } else {
+               setWinCondition('lose');
+               props.setScore(curr => curr - 1);
+            }
+         }
+
+         if (player === 'scissors') {
+            if (computer === 'paper' || computer === 'lizard') {
+               setWinCondition('win');
+               props.setScore(curr => curr + 1);
+            } else {
+               setWinCondition('lose');
+               props.setScore(curr => curr - 1);
+            }
+         }
+
+         if (player === 'spock') {
+            if (computer === 'scissors' || computer === 'rock') {
+               setWinCondition('win');
+               props.setScore(curr => curr + 1);
+            } else {
+               setWinCondition('lose');
+               props.setScore(curr => curr - 1);
+            }
+         }
+
+         if (player === 'lizard') {
+            if (computer === 'spock' || computer === 'paper') {
+               setWinCondition('win');
+               props.setScore(curr => curr + 1);
+            } else {
+               setWinCondition('lose');
+               props.setScore(curr => curr - 1);
+            }
+         }
+      }
+   }, [player, computer]);
 
    const defaultGame = (
       <Game>
