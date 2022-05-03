@@ -7,6 +7,10 @@ const GameMode = styled.div`
       color: white;
       font-size: 2em;
       text-transform: uppercase;
+
+      @media screen and (max-width: 470px) {
+         font-size: 1em;
+      }
    }
 `;
 

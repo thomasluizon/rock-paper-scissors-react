@@ -6,13 +6,19 @@ const transform = `
    left: 50%;
    transform: translate(-50%, -50%);
 `;
-const buttonSize = '130px';
+const buttonSize = '140px';
 
 const GameButton = styled.div`
    background: ${props => props.colorRadial};
    border-radius: 50%;
-   width: ${buttonSize};
-   height: ${buttonSize};
+   width: ${props => props.size || buttonSize};
+   height: ${props => props.size || buttonSize};
+
+   @media screen and (max-width: 470px) {
+      width: calc(${buttonSize} * 0.67);
+      height: calc(${buttonSize} * 0.67);
+   }
+
    position: relative;
    transition: 0.2s;
    cursor: pointer;
@@ -34,12 +40,23 @@ const Circle = styled.div`
    border-radius: 50%;
    width: ${circleSize};
    height: ${circleSize};
+
+   @media screen and (max-width: 470px) {
+      background-size: 50%;
+   }
+
    box-shadow: inset 0 8px 0 0 #ccc;
 `;
 
 export default props => {
    return (
-      <GameButton box={props.box} id={props.id} colorRadial={props.color}>
+      <GameButton
+         onClick={props.onClick}
+         box={props.box}
+         id={props.id}
+         colorRadial={props.color}
+         size={props.size}
+      >
          <Circle img={props.img} />
       </GameButton>
    );

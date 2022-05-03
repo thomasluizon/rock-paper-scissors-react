@@ -5,7 +5,7 @@ import colors from '../function/Colors';
 
 const Selector = styled.div`
    margin-top: 2rem;
-
+   margin-bottom: 2rem;
    p {
       color: white;
       text-transform: uppercase;
