@@ -7,6 +7,7 @@ import Scissors from '../assets/images/icon-scissors.svg';
 import Spock from '../assets/images/icon-spock.svg';
 import Lizard from '../assets/images/icon-lizard.svg';
 import colors from '../function/Colors';
+import { useEffect, useState } from 'react';
 
 const Winner = styled.div`
    display: flex;
@@ -33,6 +34,13 @@ const Winner = styled.div`
 
 export default props => {
    const Game = props.Game;
+   const [timePassed, setTimePassed] = useState(false);
+
+   useEffect(() => {
+      setTimeout(() => {
+         setTimePassed(true);
+      }, 2000);
+   }, []);
 
    const setButton = play => {
       if (play === 'rock') {
@@ -81,37 +89,57 @@ export default props => {
          <Layout.wrapper align="center" justify="space-between" gap="1rem">
             <div className="wrapper">
                <h4>You Picked</h4>
-               <GameButton
-                  box={setButton(props.player).playerBox}
-                  img={setButton(props.player).playerImg}
-                  color={setButton(props.player).playerColor}
-                  size="250px"
-                  win={props.winCondition === 'win' ? true : false}
-                  index={-1}
-               />
+               {timePassed ? (
+                  <GameButton
+                     box={setButton(props.player).playerBox}
+                     img={setButton(props.player).playerImg}
+                     color={setButton(props.player).playerColor}
+                     size="250px"
+                     win={props.winCondition === 'win' ? true : false}
+                     index={-1}
+                  />
+               ) : (
+                  <GameButton
+                     box={setButton(props.player).playerBox}
+                     img={setButton(props.player).playerImg}
+                     color={setButton(props.player).playerColor}
+                     size="250px"
+                     win={false}
+                     index={-1}
+                  />
+               )}
             </div>
             <Winner>
-               <h3>
-                  {props.winCondition === 'win'
-                     ? 'You win'
-                     : props.winCondition === 'lose'
-                     ? 'You lose'
-                     : 'Draw'}
-               </h3>
+               {timePassed ? (
+                  <h3>
+                     {props.winCondition === 'win'
+                        ? 'You win'
+                        : props.winCondition === 'lose'
+                        ? 'You lose'
+                        : 'Draw'}
+                  </h3>
+               ) : (
+                  <h3>Computer is choosing...</h3>
+               )}
+
                <button onClick={() => props.setIsPlaying(false)}>
                   Play Again
                </button>
             </Winner>
             <div className="wrapper">
                <h4>The house picked</h4>
-               <GameButton
-                  box={setButton(props.computer).playerBox}
-                  img={setButton(props.computer).playerImg}
-                  color={setButton(props.computer).playerColor}
-                  size="250px"
-                  win={props.winCondition === 'lose' ? true : false}
-                  index={-1}
-               />
+               {timePassed ? (
+                  <GameButton
+                     box={setButton(props.computer).playerBox}
+                     img={setButton(props.computer).playerImg}
+                     color={setButton(props.computer).playerColor}
+                     size="250px"
+                     win={props.winCondition === 'lose' ? true : false}
+                     index={-1}
+                  />
+               ) : (
+                  ''
+               )}
             </div>
          </Layout.wrapper>
       </Game>
